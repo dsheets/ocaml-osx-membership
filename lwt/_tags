@@ -1,0 +1,4 @@
+<*.*>: package(lwt.unix), thread, package(ctypes.stubs)
+<*.*>: package(unix-errno)
+<osx_membership_lwt_stubs.c>: use_lwt, use_ctypes
+<*.{cma,cmxa}>: use_osx_membership_lwt_stubs

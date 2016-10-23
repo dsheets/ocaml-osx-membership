@@ -1,0 +1,4 @@
+<*.{ml,mli}>: package(ctypes.stubs), package(unix-errno.unix)
+<*.{ml,mli}>: package(posix-types)
+<osx_membership_stubs.c>: use_ctypes
+<*.{cma,cmxa}>: use_osx_membership_stubs

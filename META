@@ -1,0 +1,17 @@
+version = "0.1.0"
+description = "OS X membership.h uid/gid mapping bindings"
+requires = "ctypes.stubs unix-errno.unix posix-types"
+archive(byte) = "osx_membership.cma"
+archive(byte, plugin) = "osx_membership.cma"
+archive(native) = "osx_membership.cmxa"
+archive(native, plugin) = "osx_membership.cmxs"
+exists_if = "osx_membership.cma"
+
+package "lwt" (
+  requires = "osx-membership lwt.unix"
+  archive(byte) = "osx_membership_lwt.cma"
+  archive(byte, plugin) = "osx_membership_lwt.cma"
+  archive(native) = "osx_membership_lwt.cmxa"
+  archive(native, plugin) = "osx_membership_lwt.cmxs"
+  exists_if = "osx_membership_lwt.cma"
+)
