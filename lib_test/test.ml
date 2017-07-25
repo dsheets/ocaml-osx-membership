@@ -20,22 +20,22 @@ module Basic = struct
 
   let uid () =
     let uid = Unix.getuid () in
-    let uuid = Id.to_uuid (Id.Uid uid) in
+    let uuid = Id.to_uuid (Uid uid) in
     print_endline (Uuid.to_string uuid);
     match Id.of_uuid uuid with
-    | Id.Uid u when u = uid -> ()
-    | Id.Uid u -> Alcotest.fail (Printf.sprintf "Got uid %d expected %d" u uid)
-    | Id.Gid g ->
+    | Uid u when u = uid -> ()
+    | Uid u -> Alcotest.fail (Printf.sprintf "Got uid %d expected %d" u uid)
+    | Gid g ->
       Alcotest.fail (Printf.sprintf "Got gid %d expected uid %d" g uid)
 
   let gid () =
     let gid = Unix.getgid () in
-    let uuid = Id.to_uuid (Id.Gid gid) in
+    let uuid = Id.to_uuid (Gid gid) in
     print_endline (Uuid.to_string uuid);
     match Id.of_uuid uuid with
-    | Id.Gid g when g = gid -> ()
-    | Id.Gid g -> Alcotest.fail (Printf.sprintf "Got gid %d expected %d" g gid)
-    | Id.Uid u ->
+    | Gid g when g = gid -> ()
+    | Gid g -> Alcotest.fail (Printf.sprintf "Got gid %d expected %d" g gid)
+    | Uid u ->
       Alcotest.fail (Printf.sprintf "Got uid %d expected gid %d" u gid)
 
   let tests = [
